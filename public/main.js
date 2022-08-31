@@ -29,7 +29,7 @@ const registerQuote=(event) => {
     idStarter++
     // console.log(quoteObj);
     registerInput.value="";
-    axios.post(`"${baseUrl}api/register"`,quoteObj)
+    axios.post(`${baseUrl}api/register`,quoteObj)
         .then(res=> {
             document.querySelector(".register-result").textContent=""
             document.querySelector(".quote-here").textContent="";
@@ -45,7 +45,7 @@ const getAllQuotes = () => {
 
     document.querySelector(".quote-here").textContent="";
 
-    axios.get(`"${baseUrl}api/register"`)
+    axios.get(`${baseUrl}api/register`)
         .then(res => {
             // console.log("hello")
             for ( let i of res.data){
