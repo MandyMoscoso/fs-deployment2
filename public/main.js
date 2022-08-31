@@ -6,9 +6,10 @@ let idStarter=10;
 const getAllQuotesBtn = document.getElementById("all-quotes");
 
 
+const baseUrl = "https://mm-labs-deployment.herokuapp.com/"
 
 const getInspiration = () => {
-    axios.get("http://localhost:4000/api/quotes/")
+    axios.get(`${baseUrl}api/quotes/`)
         .then(res => {
             const data = res.data;
             // console.log(data.quote)
@@ -16,7 +17,6 @@ const getInspiration = () => {
     });
 };
 
-const baseUrl = "https://mm-labs-deployment.herokuapp.com/"
 
 const registerQuote=(event) => {
     event.preventDefault();
