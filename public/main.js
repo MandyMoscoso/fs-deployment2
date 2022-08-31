@@ -16,6 +16,7 @@ const getInspiration = () => {
     });
 };
 
+const baseUrl = "https://mm-labs-deployment.herokuapp.com/"
 
 const registerQuote=(event) => {
     event.preventDefault();
@@ -28,7 +29,7 @@ const registerQuote=(event) => {
     idStarter++
     // console.log(quoteObj);
     registerInput.value="";
-    axios.post("http://localhost:4000/api/register",quoteObj)
+    axios.post(`"${baseUrl}api/register"`,quoteObj)
         .then(res=> {
             document.querySelector(".register-result").textContent=""
             document.querySelector(".quote-here").textContent="";
@@ -44,7 +45,7 @@ const getAllQuotes = () => {
 
     document.querySelector(".quote-here").textContent="";
 
-    axios.get("http://localhost:4000/api/register/")
+    axios.get(`"${baseUrl}api/register"`)
         .then(res => {
             // console.log("hello")
             for ( let i of res.data){
@@ -66,7 +67,7 @@ const createQuoteDisplay = (quote, id) =>{
 const deleteQuote = id =>{
     console.log("delete clicked. main.js")
     
-    axios.delete(`http://localhost:4000/api/quotes/${id}`). then (res => getAllQuotes())
+    axios.delete(`${baseUrl}api/quotes/${id}`). then (res => getAllQuotes())
 
 }
 
@@ -90,7 +91,7 @@ const getEditForm=(id) => {
         id,
         quote: formInput
     }
-    axios.put(`http://localhost:4000/api/quotes/${id}`,formObj). then(res => getAllQuotes())
+    axios.put(`${baseUrl}api/quotes/${id}`,formObj). then(res => getAllQuotes())
         
 };
 
